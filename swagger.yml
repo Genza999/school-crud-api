@@ -1,0 +1,116 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger REST Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+# Paths supported by the server application
+paths:
+  /schools:
+    get:
+      operationId: schools.read_all
+      tags:
+        - Schools
+      summary: The Schools data structure supported by the server application
+      description: Read the list of schools
+      responses:
+        200:
+          description: Successful read schools list operation
+          schema:
+            type: array
+            items:
+              properties:
+                school:
+                  type: string
+                students:
+                  type: integer
+    post:
+      operationId: schools.create
+      tags:
+        - schools
+      summary: Create a school and add it to the schools list
+      description: Create a new school in the schools list
+      parameters:
+        - name: info
+          in: body
+          description: School to create
+          required: True
+          schema:
+            type: object
+            properties:
+              school:
+                type: string
+                description: Name of school to create
+              students:
+                type: integer
+                description: Number of students in school 
+      responses:
+        201:
+          description: Successfully created school in list 
+
+  /schools/{school}:
+    get:
+      operationId: schools.read_one
+      tags:
+        - schools
+      summary: Read one school from the schools list
+      description: Read one school from the schools list
+      parameters:
+        - name: school
+          in: path
+          description: Name of school to get
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read person from people list operation
+          schema:
+            properties:
+              school:
+                type: string
+              students:
+                type: integer
+    put:
+      operationId: schools.update
+      tags:
+        - schools
+      summary: Update a school in the schools list
+      description: Update a school in the schools list
+      parameters:
+        - name: school
+          in: path
+          description: Name of school to update in schools list
+          type: string
+          required: True
+        - name: info
+          in: body
+          schema:
+            type: object
+            properties:
+              school:
+                type: string
+              students:
+                type: integer
+      responses:
+        200:
+          description: Successfully updated person in people list
+    delete:
+      operationId: schools.delete
+      tags:
+        - schools
+      summary: Delete a school from the schools list
+      description: Delete a school
+      parameters:
+        - name: school
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully deleted school frok schools list
