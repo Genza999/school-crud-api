@@ -10,19 +10,24 @@ Building a simple web API that carries out all CRUD operations on a specific dat
 * MongoDb
 * Virtual environment
 
+
+### Use the following command to generate the requirements.txt file that includes all the external dependencies used in the project
+```
+pip freeze >requirements.txt
+```
+
 ### Use the command below to build a perfect replica of the virtual environment:
 
 ```
 pip install -r requirements.txt
 ```
 
-### After run the following command to start the web application(Make sure your Mongodb server is already up):
-
+### Use the following command to start the server:
 ```
 python app.py runserver
 ```
 
-### Open your browser and navigate to the following url:
+### Open your browser and navigate to the following url to explore the CRUD apis with the swagger UI:
 ```
 localhost:5000
 ```
@@ -31,3 +36,4 @@ localhost:5000
 ### Author 
 
 Kisekka David
+
