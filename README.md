@@ -16,13 +16,13 @@ Building a simple web API that carries out all CRUD operations on a specific dat
 pip freeze >requirements.txt
 ```
 
-### Use the command below to build a perfect replica of the virtual environment:
+### Use the command below to build a perfect replica of the virtual environment(Downloads all the dependencies in the requirements file):
 
 ```
 pip install -r requirements.txt
 ```
 
-### Use the following command to start the server:
+### Use the following command to start the server(Make sure your Mongodb server is already up):
 ```
 python app.py runserver
 ```
